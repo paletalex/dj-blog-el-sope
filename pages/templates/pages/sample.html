@@ -1,0 +1,23 @@
+{% extends 'blogger/base.html' %}
+{% load static %}
+{% block extracss %} <link rel="stylesheet" href="{% static 'blogger/css/post_styles.css' %}"> {% endblock %}
+{% block title %}{{object.title}} {% endblock %}
+
+
+{% block content %}
+
+    <h2 class="anton text-center">{{object.title}}</h2>
+    
+    <div>{{object.content|safe|linebreaks }}</div>
+    {% if request.user.is_superuser%}
+    <p><a href=" {% url 'admin:pages_page_change' object.id  %} ">Editar</a>
+    {%endif%}
+    
+        
+    
+    <a href="{% url 'home'  %}" class="btn btn-primary btn-block" >Regresar</a>
+    
+{% endblock content %}
+
+
+    

@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="es">
+  <head>
+      {% load static %}
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'blogger/css/styles.css' %}">
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous" />
+
+    <!-- fuentes -->
+    <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
+
+    {% block extracss %}{% endblock %}
+
+    <title>{% block title %}{% endblock %}| Blogger</title>
+  </head>
+  <body>
+
+    <!-- Menu de navegacion -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top container-fluid ">
+        <div class="container bg-dark ">
+            <a class="anton sope navbar-brand " href="{% url 'home' %}">
+                <img src="" width="30" height="30" class="d-inline-block align-top" alt=""> El Sope!!
+            </a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                  </button>
+
+            <div class=' collapse navbar-collapse' id='navbarTogglerDemo02'>
+               
+              <ul class="navbar-nav mx-auto anton ">
+                    <li class="nav-item  rosa ">
+                      <a class="nav-link px-3{% if  request.path == '/' %} activada {%endif%}  black" href="{% url 'home' %}">INICIO</a>
+                    </li>
+
+                    <li class="nav-item blu ">
+                      <a class="nav-link px-3{% if 'noticias' in request.path %} activada {%endif%}" href="{% url 'category' 'noticias' %}">NOTICIAS</a>
+                    </li>
+                    
+                    <li class="nav-item  red">
+                      <a class="nav-link px-3{% if 'deportes' in request.path %} activada {%endif%}" href="{% url 'category' 'deportes' %}">DEPORTES</a>
+                    </li>
+
+                    <li class="nav-item pika">
+                      <a class="nav-link px-3{% if 'tecnologia' in request.path %} activada {%endif%} " href="{% url 'category' 'tecnologia' %} ">TECNOLOGIA</a>
+                    </li>
+
+                    <li class="nav-item chu">
+                      <a class="nav-link px-3{% if 'entretenimiento' in request.path %} activada {%endif%}" href=" {% url 'category' 'entretenimiento' %} ">ENTRETENIMIENTO</a>
+                    </li>
+                    
+                    <li class="nav-item  white">
+                      <a class="nav-link px-3{% if 'otros' in request.path %} activada {%endif%}" href="{% url 'category' 'otros' %}">OTROS</a>
+                    </li>
+                  </ul>
+                  
+                <div class="text-center ">
+                    {% if LINK_YOUTUBE %}<a  target="_blank" href="{{LINK_YOUTUBE}}"><i class="fab fa-youtube "></i></a>{% endif %}
+                    {% if LINK_FACEBOOK %}<a  target="_blank" href="{{LINK_FACEBOOK}}"><i class="fab fa-facebook "></i></a>{% endif %}
+                    {% if LINK_INSTAGRAM %}<a target="_blank"  href="{{LINK_INSTAGRAM}}"><i class="fab fa-instagram "></i></a>{% endif %}
+                    {% if LINK_GITHUB %}<a target="_blank"  href="{{LINK_GITHUB}}"><i class="fab fa-github "></i></a>{% endif %}
+                    {% if LINK_TWITTER %}<a  target="_blank" href="{{LINK_TWITTER}}"><i class="fab fa-twitter "></i></a>{% endif %}
+
+              
+                      
+                      <i class="fas fa-search"></i>
+                    
+                </div>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- menu crud -->
+   {% include 'blogger/includes/crud_menu.html' %}
+
+    <!-- Fin menu -->
+    <div class="container mb-5"></div>
+    <!-- Barra de busqueda -->
+    <div class="container busqueda ocultar fast fadeIn">
+      <form action="" method="get" class='mb-3'>
+        <input type="text" class="form-control " placeholder="Buscar..." name="buscar">
+      </form>
+    </div>
+    
+  <!-- Contenido -->
+    <div class="contaner mt-5 fast fadeIn">
+        <div class="row ">
+            <div class="col-md-3">
+              
+            </div>
+            <div class="col-md-6 ">
+
+                
+                {% block content %}
+                    
+                {% endblock content %}
+
+                {% include 'blogger/includes/paginate.html' %}
+                    
+            </div>
+            
+            <div class="col-md-3 text-center px-5  ">
+            
+                <h3 class="anton ">TAGS</h3>
+                
+                {% for tag in tags %}
+                <a href="{% url 'tag' tag.slug %}"><span class="badge ">{{tag.slug}}</a>
+                {% endfor %}
+                    
+            </div>
+            
+        </div>
+        
+    </div>
+
+    <footer>
+        <div class="container-fluid mt-5 py-5 bg-dark text-center text-light">
+            <p class="lead mb-0">
+                Derechos reservados - Alejandro De la O
+            </p>
+            
+            {% for page in pages  %}
+              <a href=" {% url 'page' page.id page.title|slugify %} " class="pages" style="color: rgb(255, 255, 255);
+                font-weight: bold;text-decoration: none!important;">{{page.title}}</a>{%if not forloop.last%} | {%endif%}
+            {% endfor %}
+
+            <p class="text-center ">
+                <a href=" {% url 'contact' %} " class='pages text-white'>- Contacto - </a>
+            </p>
+              
+        </div>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <script src="{% static 'blogger/js/post_app.js' %}"></script>
+  </body>
+</html>

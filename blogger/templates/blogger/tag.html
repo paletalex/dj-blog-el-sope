@@ -1,0 +1,17 @@
+{% extends 'blogger/base.html' %}
+{% load static %}
+{% block title %}{{object.slug}} {% endblock %}
+
+
+{% block content %}
+
+<h1 class='text-center mb-2'>#{{object.slug | upper}}</h1>
+{% for post in object.get_posts.all|dictsort:"id" reversed  %}
+
+<a href="{% url 'post' post.slug %}" class="pages" >{{post.title }}</a>{% if not forloop.last %} | {% endif %}
+    
+
+
+{% endfor %}
+
+{% endblock content %}

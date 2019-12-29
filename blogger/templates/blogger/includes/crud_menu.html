@@ -1,0 +1,42 @@
+
+<style>
+.crud:hover{
+  text-decoration: none!important;
+  color: #FF003E!important;
+  font-weight: bold!important;
+}
+.crud{
+  color: #5DADE2!important;
+}
+label{
+    font-weight: bold;
+}
+</style>
+{% load static %}
+<link href="{% static 'blogger/css/custom_ckeditor.css' %}" rel="stylesheet">
+<script type="text/javascript" src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
+<script type="text/javascript" src="{% static 'ckeditor/ckeditor/ckeditor.js'%}"></script>
+{% if perms.blogger.add_post%}
+<nav class="navbar navbar-expand-lg navbar-light bg-light ">
+    <i class='font-weight-bold mr-5'>Administrar</i>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+      <ul class="navbar-nav mr-auto">
+
+        <li class="nav-item crud ">           
+          <a class="nav-link crud" href="{% url 'create' %}">Crear pagina</a>
+        </li>
+        <li class="nav-item crud">
+          <a class="nav-link  crud" href="{% url 'home' %}">Listar paginas</a>
+        </li>
+       
+      </ul>
+     
+    </div>
+  </nav>
+{% endif %}
+    

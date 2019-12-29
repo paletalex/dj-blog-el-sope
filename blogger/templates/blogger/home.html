@@ -1,0 +1,34 @@
+{% extends 'blogger/base.html' %}
+{% load static %}
+{% block title %}Posts {% endblock %}
+
+
+{% block content %}
+
+
+
+{% for post in object_list|dictsort:"id" reversed  %}
+
+<a class='title anton' href="{%url 'post' post.slug %}">
+    <h2 >{{post.title | upper}}</h2>
+    <img src="{{post.img}}" alt="" class='img-fluid'>
+</a>
+{% for tag in post.tags.all  %}
+    <a href="{% url 'tag' tag.slug %}"><span class="badge ">{{tag.slug}}</span></a>
+{% endfor %}
+<p class="lead text-prymary">Autor: <a class='text-monospace' href="{% url 'author' post.author %}">{{post.author}}</a> - <small class='text-danger'>publicado el {{post.published |date:"l d F Y" }}</small></p> 
+<div>{{post.content|safe|truncatechars:"500" }}</div>
+
+{% if perms.blogger.change_post%}
+<p><a href=" {% url 'update' post.slug  %} ">Editar</a> {%endif%}
+{% if perms.blogger.delete_post%} | <a href=" {% url 'delete' post.slug  %} ">Eliminar</a> 
+{% endif %}</p>
+    
+<a href="{% url 'post' post.slug %}" class="btn btn-primary btn-block mb-5" >Seguir leyendo</a>
+<hr>
+    
+{% endfor %}
+    
+    
+{% endblock content %}
+    

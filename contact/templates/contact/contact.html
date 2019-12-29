@@ -1,0 +1,27 @@
+{% extends 'blogger/base.html' %}
+{% load static %}
+{% block title %}Contacto {% endblock %}
+
+
+{% block content %}
+<h2 class='anton mb-3'>CONTACTO<h2>
+{% if 'ok' in request.GET %}
+    <p class='text-success'>Correo enviado exitosamente!</p>
+{% endif %}
+{% if 'fail' in request.GET %}
+    <p class='text-danger'>Algo salio mal! Intentalo mas tarde</p>
+{% endif %}
+    
+<form action="#" method='post'>{% csrf_token %}
+
+<input name="name" id="" class="form-control mb-3" type="text" placeholder='Escribe tu nombre'>
+<input name="email" id="" class="form-control mb-3" type="email" placeholder='Escribe un correo valido'>
+
+<textarea class="form-control mb-3" name="message" id="" rows="3" placeholder='Escribe tu mensaje...'></textarea>
+
+
+<input name="" id="" class="btn btn-success" type="submit" value="Enviar">
+</form>
+    
+{% endblock content %}
+

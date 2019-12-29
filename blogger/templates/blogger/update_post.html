@@ -1,0 +1,21 @@
+{% extends 'blogger/base.html' %}
+{% load static %}
+
+{% block title %}Crear pagina{% endblock title %}
+
+{% block content %}
+
+
+{% if 'ok' in request.GET %}
+<p style="color: green;">Actualizado correctamente <a href="{% url 'post' post.slug %}">Haz click para ver el resultado </a></p>
+{% endif %}
+    
+
+<form class="p-5 rounded" style="background-color: #1ABC9C ;" action="#" method="post" enctype="multipart/form-data"> {% csrf_token %}
+    
+        {{form.as_p}}
+    
+    <input class='btn btn-block' type="submit" value="Editar página" />
+</form>
+    
+{% endblock content %}

@@ -1,0 +1,8 @@
+# Text backup files
+*.bak
+__pycache__
+local_settings.py
+
+#Database
+*.pyc
+*.sqlite3

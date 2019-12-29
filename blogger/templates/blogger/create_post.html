@@ -1,0 +1,17 @@
+{% extends 'blogger/base.html' %}
+{% load static %}
+
+{% block title %}Crear pagina{% endblock title %}
+
+{% block content %}
+
+<form class="p-5 rounded" style="background-color: #1ABC9C ;"  action="#" method="post" enctype="multipart/form-data"> {% csrf_token %}
+    
+        {{form.as_p}}
+    
+    <input class='btn btn-block' type="submit" value="Crear página" />
+</form>
+    
+{% endblock content %}
+    
+    

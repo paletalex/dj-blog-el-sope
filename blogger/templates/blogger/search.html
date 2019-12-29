@@ -1,0 +1,30 @@
+{% extends 'blogger/base.html' %}
+{% load static %}
+{% block title %}Posts {% endblock %}
+
+
+{% block content %}
+<h1 class="anton ">Resultados de: {{request.GET.buscar}}</h1>
+<hr>
+
+{% for post in object_list|dictsort:"id" reversed  %}
+
+<a class='title anton' href="{%url 'post' post.slug %}">
+    <h2 >{{post.title | upper}}</h2>
+    <img src="{{post.img}}" alt="" class='img-fluid'>
+</a>
+{% for tag in post.tags.all  %}
+    <a href="{% url 'tag' tag.slug %}"><span class="badge ">{{tag.slug}}</span></a>
+{% endfor %}
+<p class="lead text-prymary">Autor: {{post.author}} - <small class='text-danger'>publicado el {{post.published |date:"l d F Y" }}</small></p> 
+<div>{{post.content|safe|truncatechars:"200" }}</div>
+<a href="{% url 'post' post.slug %}" class="btn btn-primary btn-block mb-5" >Seguir leyendo</a>
+<hr>
+
+{% empty %}
+<h1 class='anton'>SIN RESULTADOS...</h1 >
+
+{% endfor %}
+    
+{% endblock content %}
+    
