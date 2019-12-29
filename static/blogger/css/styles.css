@@ -1,0 +1,163 @@
+.aside{
+    width:100%!important;
+    position: fixed!important;
+    right:0!important;
+    float:right!important;
+}
+
+.anton{
+    font-family: 'Anton', sans-serif;
+}
+
+p>a{
+    color: #FF003E;
+    font-weight: bold;
+    text-decoration: none!important;
+}
+.pages:hover{
+  color: #FF003E!important;
+  font-weight: bold!important;
+  text-decoration: none!important;
+}
+.text-monospace{
+    font-size: 20px;
+    color: #FF003E
+}
+.title:hover{
+    text-decoration: none;
+    color:rgb(0, 255, 55)!important;
+  }
+.title{
+  color: #333!important;
+}
+  .sope:hover{
+    text-decoration: none;
+    color:#FF003E!important;
+  }
+
+  .ocultar{
+    display: none;
+    width: 0;
+  }
+  
+
+
+.fa-youtube,.fa-facebook,.fa-instagram,.fa-twitter,.fa-github, .fa-search{
+    font-size: 20px;
+    color: white;
+}
+.fa-youtube:hover{
+    color: #E74C3C ;
+}
+.fa-facebook:hover{
+    color: #5DADE2 ;
+}
+.fa-instagram:hover{
+    color: rgb(241, 6, 202);
+}
+.fa-twitter:hover{
+    color: skyblue;
+}
+.fa-github:hover{
+    color: rgb(23, 219, 23);
+}
+.fa-search:hover{
+  color:#FF003E!important;
+  cursor: pointer!important;
+}
+
+/* crud */
+
+
+ul>li>a{
+    color: white!important;
+}
+ul>li>a:hover{
+    color: black!important;
+    text-decoration: none!important;
+}
+.activada{
+    color: rgb(255, 251, 0)!important;
+}
+.rosa:hover{
+  background: rgb(255, 0, 85);
+  font-weight: bold;
+  text-decoration: none!important;
+}
+.yellow:hover{
+  background: rgb(238, 255, 0);
+  font-weight: bold;
+  text-decoration: none!important;
+}
+.blu:hover{
+  background: rgb(2, 61, 253);
+  font-weight: bold;
+  text-decoration: none!important;
+}
+.white:hover{
+  background: white;
+  font-weight: bold;
+  text-decoration: none!important;
+}
+.red:hover{
+  background: rgb(202, 26, 13);
+  font-weight: bold;
+  text-decoration: none!important;
+}
+.pika:hover{
+  background: rgb(251, 255, 0);
+  font-weight: bold;
+  text-decoration: none!important;
+
+}
+.chu:hover{
+  background: rgb(0, 255, 64);
+  font-weight: bold;
+  text-decoration: none!important;
+}
+.black:hover{
+    color:black!important;
+}
+
+
+
+.btn{
+    background: rgb(7, 166, 230);
+    color: #ffffff;
+    font-weight: bold;
+    border: none;
+}
+.btn:hover{
+    background: rgb(158, 52, 219);
+    color: #333;
+}
+
+
+/* animaciones */
+.animated {
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.fast {
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+}
