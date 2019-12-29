@@ -19,25 +19,25 @@ for (let p of tags){
     }
 }
 
-let list = document.querySelectorAll('.list-group-item');
+// let list = document.querySelectorAll('.list-group-item');
 
-let list_colors = ['list-group-item-primary',
-'list-group-item-secondary',
-'list-group-item-success',
-'list-group-item-danger',
-'list-group-item-warning',
-'list-group-item-info',
-'list-group-item-light',
-'list-group-item-dark'];
+// let list_colors = ['list-group-item-primary',
+// 'list-group-item-secondary',
+// 'list-group-item-success',
+// 'list-group-item-danger',
+// 'list-group-item-warning',
+// 'list-group-item-info',
+// 'list-group-item-light',
+// 'list-group-item-dark'];
 
-let j = 0;
-for (let l of list){
-    l.classList.add(list_colors[j]);
-    j+=1;
-    if (j == 7){
-        j = 0;
-    }
-}
+// let j = 0;
+// for (let l of list){
+//     l.classList.add(list_colors[j]);
+//     j+=1;
+//     if (j == 7){
+//         j = 0;
+//     }
+// }
 
 // function ocultar(){
 //     document.querySelector('.busqueda').classList.toggle('ocultar');
