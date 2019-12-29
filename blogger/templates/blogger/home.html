@@ -13,6 +13,7 @@
     <h2 >{{post.title | upper}}</h2>
     <img src="{{post.img}}" alt="" class='img-fluid'>
 </a>
+
 {% for tag in post.tags.all  %}
     <a href="{% url 'tag' tag.slug %}"><span class="badge ">{{tag.slug}}</span></a>
 {% endfor %}
