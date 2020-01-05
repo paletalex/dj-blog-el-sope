@@ -161,3 +161,8 @@ ul>li>a:hover{
 .fadeIn {
   animation-name: fadeIn;
 }
+
+.jiji{
+  height: 30px!important;
+  width: 30px!important;
+}

@@ -1,10 +1,15 @@
 {% extends 'blogger/base.html' %}
 {% load static %}
-{% block extracss %} <link rel="stylesheet" href="{% static 'blogger/css/post_styles.css' %}"> {% endblock %}
+
 {% block title %}{{object.title}} {% endblock %}
 
 
 {% block content %}
+<style>
+    img{
+        width: 100%;
+    }
+</style>
 
 
     <img src="{{post.img}}" alt="" class='img-fluid'>
@@ -20,7 +25,7 @@
     {% endif %}</p>
 
     <hr>
-    <h3>Seguir leyendo</h3> <hr>
+    <h3 class='anton'>Seguir leyendo</h3 c> <hr>
     <div class="row">
 
         <div class="p-1 col-md-4 col-sm-6 ">
@@ -55,7 +60,11 @@
     </div>
         
     
-    <a href="{% url 'home'  %}" class="btn btn-primary btn-block" >Regresar</a>
+    <a href="{% url 'home'  %}" class="btn btn-primary btn-block" >Regresar</a><hr>
+    <h3 class='anton'>Deja tu comentario:</h3 c> <hr>
+     <!-- Comentarios plugin facebook -->
+     <div class="fb-comments" data-href="{{request.build_absolute_uri}}" data-width="" data-numposts="5"></div><br>
+     <div class="fb-like" data-href="{{request.build_absolute_uri}}" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="true"></div>
     
 {% endblock content %}
 

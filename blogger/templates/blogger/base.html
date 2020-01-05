@@ -15,9 +15,11 @@
     <!-- fuentes -->
     <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
 
+<link rel="shortcut icon" href="{% static 'blogger/img/ico/favicon.ico' %}" type="image/x-icon">
+
     {% block extracss %}{% endblock %}
 
-    <title>{% block title %}{% endblock %}| Blogger</title>
+    <title>{% block title %}{% endblock %}| El Sope</title>
   </head>
   <body>
 
@@ -25,7 +27,7 @@
     <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top container-fluid ">
         <div class="container bg-dark ">
             <a class="anton sope navbar-brand " href="{% url 'home' %}">
-                <img src="" width="30" height="30" class="d-inline-block align-top" alt=""> El Sope!!
+                <img style="width: 30px;" class="d-inline-block align-top jiji"  src="{%static 'blogger/img/jiji.png' %}"  width="30" height="30" alt=""> El Sope!!
             </a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                                     <span class="navbar-toggler-icon"></span>
@@ -94,16 +96,16 @@
     
         <div class="row " >
             
-            <div class="col-md-3 mx-0 px-0" style="margin-right: -4px!important">                
+            <div class="col-md-3 " style="margin-right: -4px!important">                
             </div>
 
-            <div class="col-md-6 mx-0 px-0" style="margin-right: -4px!important">
+            <div class="col-md-6  " style="margin-right: -4px!important">
               {% block content %}
               {% endblock %}
               {% include 'blogger/includes/paginate.html' %}                    
             </div>
            
-            <div class="col-md-3 mx-0 px-0 text-center"  style="margin-right: -4px!important" >
+            <div class="col-md-3 text-center"  style="margin-right: -4px!important" >
                 <h3 class="anton ">TAGS</h3>            
                     {% for tag in tags %}
                   <a href="{% url 'tag' tag.slug %}"><span class="badge ">{{tag.slug}}</span></a>
@@ -132,6 +134,10 @@
         </div>
     </footer>
 
+
+    <!-- Facebook -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v5.0"></script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

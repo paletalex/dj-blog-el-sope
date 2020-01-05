@@ -1,4 +1,4 @@
-{% extends 'blogger/base.html' %} {% load static %} {% block title %}Posts {% endblock %} {% block content %} {% for post in object_list|dictsort:"id" reversed %}
+{% extends 'blogger/base.html' %} {% load static %} {% block title %}:) {% endblock %} {% block content %} {% for post in object_list|dictsort:"id" reversed %}
 
 <a class='title anton' href="{%url 'post' post.slug %}">
     <h2>{{post.title | upper}}</h2>
