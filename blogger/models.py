@@ -38,6 +38,7 @@ class Post(models.Model):
     published = models.DateTimeField('Fecha de publicacion', default=now)
     content = RichTextField('Contenido')
     img = models.URLField('Imagen', max_length=200)
+    public = models.BooleanField('Estado', default=False)
     created = models.DateTimeField('Fecha de creacion', auto_now=True, auto_now_add=False)
     updated = models.DateTimeField('Fecha de modificacion', auto_now=False, auto_now_add=True)
 

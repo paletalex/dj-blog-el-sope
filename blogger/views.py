@@ -17,7 +17,7 @@ import random
 
 class Home(ListView):
     template_name = 'blogger/home.html'
-    model = Post
+    queryset = Post.objects.filter(public=True)
     paginate_by = 10
 
 class PostDetail(DetailView):
@@ -69,7 +69,7 @@ class CategoryList(ListView):
        
         category = get_object_or_404(Category, name = self.kwargs['name'])
         # posts = get_list_or_404(Post, category = category)
-        posts = Post.objects.filter(category = category)
+        posts = Post.objects.filter(category = category, public=True)
         return  posts
         
     #Regresa como contexto la categoria
