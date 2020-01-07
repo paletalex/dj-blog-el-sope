@@ -19,7 +19,7 @@ class TagResource(resources.ModelResource):
         export_order = ('id', 'created')
 # Register your models here.
 class PostAdmin(ImportExportModelAdmin, admin.ModelAdmin):
-    readonly_fields = ('created', 'updated')
+    readonly_fields = ('public', 'created', 'updated')
     list_display = ('title', 'published', 'author')
     date_hierarchy = 'published'
     
