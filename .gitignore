@@ -1,7 +1,7 @@
 # Text backup files
 *.bak
 __pycache__
-local_settings.py
+production_settings.py
 
 #Database
 *.pyc
